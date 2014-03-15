@@ -1,0 +1,51 @@
+\documentclass[12pt]{article}
+%\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\Hrule}{\rule{\linewidth}{0.3mm}}
+\renewcommand{\refname}{}
+
+\makeatletter% since there's an at-sign (@) in the command name
+\renewcommand{\@maketitle}{%
+  \parindent=0pt% don't indent paragraphs in the title block
+  \centering
+  {\Large \bfseries\textsc{\@title}}
+  \HRule\par%
+  \textit{\@author \hfill \@date}
+  \par
+}
+\renewcommand\@biblabel[1]{#1.}
+\makeatother % resets the meaning of the at-sign (@)
+
+
+\title{List of publications}
+\author{Snehasish Kumar}
+\date{September 2013}
+ 
+% Highlight my name
+
+\def\FormatName#1{
+  \def\myname{Snehasish Kumar}
+  \edef\name{#1}
+  \ifx\name\myname
+    \textbf{#1}
+  \else
+    #1
+  \fi
+}
+
+\begin{document}
+\maketitle % prints the title block
+\vspace{10pt}
+
+\nocite{amoeba,protozoa,mici}
+
+\bibliographystyle{plainyr-rev}
+\footnotesize{\bibliography{pubs}}
+
+\end{document}
+
+

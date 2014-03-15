@@ -26,25 +26,20 @@
 % personal data
 \firstname{Snehasish}
 \familyname{Kumar}
-%\title{Resumé title (optional)}               % optional, remove the line if not wanted
 \address{8888 University Drive, LRH - 418}{Burnaby V5A1S6}    % optional, remove the line if not wanted
 \mobile{+1~(604)~721~4323}                     % optional, remove the line if not wanted
-%\phone{+2~(345)~678~901}                      % optional, remove the line if not wanted
-%\fax{+3~(456)~789~012}                        % optional, remove the line if not wanted
 \email{snehasish\textunderscore kumar@sfu.ca}                          % optional, remove the line if not wanted
-%\homepage{www.snehasish.net}                    % optional, remove the line if not wanted
-%\extrainfo{additional information}            % optional, remove the line if not wanted
-%\photo[64pt][0.4pt]{picture}                  % '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file; optional, remove the line if not wanted
-%\quote{Some quote (optional)}                 % optional, remove the line if not wanted
+\homepage{www.snehasish.net}                    % optional, remove the line if not wanted
 
-% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
-%\makeatletter
-%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
-%\makeatother
 
-% bibliography with mutiple entries
-%\usepackage{multibib}
-%\newcites{book,misc}{{Books},{Others}}
+
+\def\FormatName#1{
+  \def\myname{Snehasish Kumar}
+  \edef\name{#1}
+  \ifx\name\myname\textbf{#1}
+  \else#1\fi
+}
+
 %----------------------------------------------------------------------------------
 %            content
 %----------------------------------------------------------------------------------
@@ -67,33 +62,12 @@
         {Under the guidance of Dr. Arrvindh Shriraman, I have been working on adaptive granularity cache lines for memory systems to eliminate bandwidth and energy waste. The proposed system varies the cache line size dynamically based on the nature of the application to only bring in useful data. This increases cache utilisation and improves miss rate by increasing the effective cache size.}  
 \cventry{2006--2010}{B. Tech in Computer Engineering }{Biju Patnaik University of Technology}{Orissa, India}{\textit{8.3/10.0}}{Under the guidance of Dr. Satyananda Champati Rai, I was responsible for the design and implementation of a modfied vector genetic algorithm to solve the problem of selecting an optimal borrowing scheme for the channel allocation problem in wireless mobile networks.}
 
-%% \section{Experience}
-%% \subsection{Vocational}
-%% \cventry{year--year}{Job title}{Employer}{City}{}{General description no longer than 1--2 lines.\newline{}%
-%% Detailed achievements:%
-%% \begin{itemize}%
-%% \item Achievement 1;
-%% \item Achievement 2, with sub-achievements:
-%%   \begin{itemize}%
-%%   \item Sub-achievement (a);
-%%   \item Sub-achievement (b), with sub-sub-achievements (don't do this!);
-%%     \begin{itemize}
-%%     \item Sub-sub-achievement i;
-%%     \item Sub-sub-achievement ii;
-%%     \item Sub-sub-achievement iii;
-%%     \end{itemize}
-%%   \item Sub-achievement (c);
-%%   \end{itemize}
-%% \item Achievement 3.
-%% \end{itemize}}
-%% \cventry{year--year}{Job title}{Employer}{City}{}{Description line 1\newline{}Description line 2}
-%% \subsection{Miscellaneous}
-%% \cventry{year--year}{Job title}{Employer}{City}{}{Description}
-
 \section{Publications}
-\cvitem{ISCA 2013}{Hongzhou Zhao, Arrvindh Shriraman, \textbf{Snehasish Kumar}, Sandhya Dwarkadas, \emph{Protozoa : Adaptive Granularity Cache Coherence}}
-\cvitem{MICRO 2012}{\textbf{Snehasish Kumar}, Hongzhou Zhao, Arrvindh Shriraman, Eric Matthews, Sandhya Dwarkadas, Lesley Shannon, \emph{Amoeba Cache:Adaptive Blocks for Eliminating Waste in the Memory Hierarchy}}
-\cvitem{InterJRI 2010}{\textbf{Snehasish Kumar}, Satyananda Champati Rai, Rajib Mall and Sateesh Kumar Pradhan, \emph{MiCi: A Novel Micro-Level Temporal Channel Imploration for Mobile Hosts}}
+\nocite{*}
+% Only supports @article and @inproceedings, other ones will need "{}" fix to work
+\bibliographystyle{plainyr-rev}
+
+\bibliography{pubs}  
 
 \section{Awards}
 \cvitem{Spring 2014}{Special Graduate Entrance Scholarship, Simon Fraser University}
@@ -107,11 +81,9 @@
 
 
 \section{Work Experience}
-\cvitem{July 2013 - Present}{Co-Op : Systems Technology and Microarchitecture \newline{} IBM, T.J. Watson Research Centre \newline{} Mentor: Dr. Vijayalakshmi Srinivasan}
+\cvitem{July--Dec 2013}{Co-Op : Systems Technology and Architecture \newline{} IBM, T.J. Watson Research Centre \newline{} Mentor: Dr. Vijayalakshmi Srinivasan}
 \cvitem{2011--2013}{Research Assistant : SYNAR Group, Simon Fraser University}
 \cvitem{2011, 2013}{Teaching Assistant : CMPT 880, 120, 165, 300}
-
-
 
 \section{Technical Skills}
 \cvitem{Languages}{C, C++, Java, Python, Matlab, PHP, SQL, Javascript, HTML}
@@ -126,61 +98,9 @@
 \cvitem{English}{Proficient}
 \cvitem{Hindi}{Proficient}
 \cvitem{Bengali}{Spoken}
-%% \section{Computer skills}
-%% \cvdoubleitem{Core}{C/C++}{category 4}{XXX, YYY, ZZZ}
-%% \cvdoubleitem{High Level}{Python, Java, C}{category 5}{XXX, YYY, ZZZ}
-%% \cvdoubleitem{}{XXX, YYY, ZZZ}{category 6}{XXX, YYY, ZZZ}
-
-%% \section{Interests}
-%% \cvitem{hobby 1}{Description}
-%% \cvitem{hobby 2}{Description}
-%% \cvitem{hobby 3}{Description}
-
-%% \section{Extra 1}
-%% \cvlistitem{Item 1}
-%% \cvlistitem{Item 2}
-%% \cvlistitem{Item 3}
-
-%% \renewcommand{\listitemsymbol}{-~}            % change the symbol for lists
-
-%% \section{Extra 2}
-%% \cvlistdoubleitem{Item 1}{Item 4}
-%% \cvlistdoubleitem{Item 2}{Item 5\cite{book1}}
-%% \cvlistdoubleitem{Item 3}{}
-
-% Publications from a BibTeX file without multibib\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% for BibTeX numerical labels
-\nocite{*}
-\bibliographystyle{plain}
-\bibliography{publications}                   % 'publications' is the name of a BibTeX file
-
-% Publications from a BibTeX file using the multibib package
-%% \section{Publications}
-%% \nocitebook{book1,book2}
-%% \bibliographystylebook{plain}
-%% \bibliographybook{publications}              % 'publications' is the name of a BibTeX file
-%% \nocitemisc{misc1,misc2,misc3}
-%% \bibliographystylemisc{plain}
-%% \bibliographymisc{publications}              % 'publications' is the name of a BibTeX file
 
 \clearpage
-%-----       letter       ---------------------------------------------------------
-% recipient data
-%% \recipient{Company Recruitment team}{Company, Inc.\\123 somestreet\\some city}
-%% \date{January 01, 1984}
-%% \opening{Dear Sir or Madam,}
-%% \closing{Yours faithfully,}
-%% \enclosure{curriculum vit\ae{}}
-%% \makelettertitle
 
-%% Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ullamcorper neque sit amet lectus facilisis sed luctus nisl iaculis. Vivamus at neque arcu, sed tempor quam. Curabitur pharetra tincidunt tincidunt. Morbi volutpat feugiat mauris, quis tempor neque vehicula volutpat. Duis tristique justo vel massa fermentum accumsan. Mauris ante elit, feugiat vestibulum tempor eget, eleifend ac ipsum. Donec scelerisque lobortis ipsum eu vestibulum. Pellentesque vel massa at felis accumsan rhoncus.
-
-%% Suspendisse commodo, massa eu congue tincidunt, elit mauris pellentesque orci, cursus tempor odio nisl euismod augue. Aliquam adipiscing nibh ut odio sodales et pulvinar tortor laoreet. Mauris a accumsan ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate sem vehicula ipsum varius nec tempus dui dapibus. Phasellus et est urna, ut auctor erat. Sed tincidunt odio id odio aliquam mattis. Donec sapien nulla, feugiat eget adipiscing sit amet, lacinia ut dolor. Phasellus tincidunt, leo a fringilla consectetur, felis diam aliquam urna, vitae aliquet lectus orci nec velit. Vivamus dapibus varius blandit.
-
-%% Duis sit amet magna ante, at sodales diam. Aenean consectetur porta risus et sagittis. Ut interdum, enim varius pellentesque tincidunt, magna libero sodales tortor, ut fermentum nunc metus a ante. Vivamus odio leo, tincidunt eu luctus ut, sollicitudin sit amet metus. Nunc sed orci lectus. Ut sodales magna sed velit volutpat sit amet pulvinar diam venenatis.
-
-%% \makeletterclosing
-
-%\clearpage\end{CJK*}                         % if you are typesetting your resume in Chinese using CJK; the \clearpage is required for fancyhdr to work correctly with CJK, though it kills the page numbering by making \lastpage undefined
 \end{document}
 
 
