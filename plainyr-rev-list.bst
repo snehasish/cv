@@ -138,24 +138,10 @@ FUNCTION {output.check}
   if$
 }
 
-STRINGS {oldyear}
-
-FUNCTION {year.or.none}
-{ 's :=
-    oldyear empty$
-     { s 'oldyear := s }
-     { s oldyear =
-         { "" }
-         { s 'oldyear := s }
-       if$
-     }
-    if$
-}
-
 FUNCTION {output.bibitem}
-{  newline$
-  "\cvitem{" write$
-  year year.or.none write$
+{ newline$
+  "\bibitem{" write$
+  cite$ write$
   "}" write$
   newline$
   ""
@@ -258,17 +244,17 @@ FUNCTION {format.names}
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > }
-    { "\FormatName{" s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ * "}" * 't :=
+    { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't :=
       nameptr #1 >
         { namesleft #1 >
-            { "," * t * }
+            { ", " * t * }
             { numnames #2 >
                 { "," * }
                 'skip$
               if$
               t "others" =
                 { " et~al." * }
-                { " and" * t * }
+                { " and " * t * }
               if$
             }
           if$
@@ -607,13 +593,22 @@ FUNCTION {format.incoll.inproc.crossref}
 
 FUNCTION {article}
 { output.bibitem
-  "{" write$
-  format.authors "author" output.check 
+  format.authors "author" output.check
+  new.block
   format.title "title" output.check
-  journal emphasize "journal" output.check
-  format.vol.num.pages output
+  new.block
+  crossref missing$
+    { journal emphasize "journal" output.check
+      format.vol.num.pages output
+      format.date "year" output.check
+    }
+    { format.article.crossref output.nonnull
+      format.pages output
+    }
+  if$
+  new.block
+  note output
   fin.entry
-  "}" write$
 }
 
 FUNCTION {book}
@@ -724,7 +719,6 @@ FUNCTION {incollection}
 
 FUNCTION {inproceedings}
 { output.bibitem
-  "{" write$
   format.authors "author" output.check
   new.block
   format.title "title" output.check
@@ -734,6 +728,19 @@ FUNCTION {inproceedings}
       format.bvolume output
       format.number.series output
       format.pages output
+      address empty$
+        { organization publisher new.sentence.checkb
+          organization output
+          publisher output
+          format.date "year" output.check
+        }
+        { address output.nonnull
+          format.date "year" output.check
+          new.sentence
+          organization output
+          publisher output
+        }
+      if$
     }
     { format.incoll.inproc.crossref output.nonnull
       format.pages output
@@ -742,7 +749,6 @@ FUNCTION {inproceedings}
   new.block
   note output
   fin.entry
-  "}" write$
 }
 
 FUNCTION {conference} { inproceedings }
@@ -1273,18 +1279,23 @@ EXECUTE {initialize.longest.label}
 ITERATE {longest.label.pass}
 
 FUNCTION {begin.bib}
-{
+{ preamble$ empty$
+    'skip$
+    { preamble$ write$ newline$ }
+  if$
+  "\begin{thebibliography}{" longest.label * "}" * write$ newline$
 }
 
 EXECUTE {begin.bib}
 
 EXECUTE {init.state.consts}
 
-REVERSE {call.type$}
+ITERATE {call.type$}
+%REVERSE {call.type$}
 
 FUNCTION {end.bib}
-{ 
-  newline$
+{ newline$
+  "\end{thebibliography}" write$ newline$
 }
 
 EXECUTE {end.bib}
