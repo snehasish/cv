@@ -6,7 +6,7 @@
 % available at http://www.latex-project.org/lppl/.
 
 
-\documentclass[10pt,a4paper,sans]{moderncv}   % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\documentclass[10pt,letterpaper,sans]{moderncv}   % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 
 % moderncv themes
 \moderncvstyle{classic}                        % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
@@ -20,13 +20,13 @@
 
 % adjust the page margins
 \usepackage[scale=0.9]{geometry}
-\setlength{\hintscolumnwidth}{3.5cm}           % if you want to change the width of the column with the dates
+\setlength{\hintscolumnwidth}{3cm}           % if you want to change the width of the column with the dates
 %\setlength{\maketitlenamewidth}{10cm}        % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 
 % personal data
 \firstname{Snehasish}
 \familyname{Kumar}
-\address{8888 University Drive, LRH - 418}{Burnaby V5A1S6}    % optional, remove the line if not wanted
+\address{7360 Halifax Street, 502A}{Burnaby V5A1M4}    % optional, remove the line if not wanted
 \mobile{+1~(604)~721~4323}                     % optional, remove the line if not wanted
 \email{snehasish\textunderscore kumar@sfu.ca}                          % optional, remove the line if not wanted
 \homepage{www.snehasish.net}                    % optional, remove the line if not wanted
@@ -57,32 +57,36 @@
 % \cvitem{}{Multicore architectures, cache memory systems, heterogenous architectures, GPGPU.}
 
 \section{Education}
-\cventry{Summer 2013--Present}{PhD in Computing Science}{Simon Fraser University}{British Columbia, Canada}{}{}
-\cventry{Spring 2011--Spring 2013}{MS in Computing Science}{Simon Fraser University}{British Columbia, Canada}{\textit{3.8/4.0}}
-        {Under the guidance of Dr. Arrvindh Shriraman, I have been working on adaptive granularity cache lines for memory systems to eliminate bandwidth and energy waste. The proposed system varies the cache line size dynamically based on the nature of the application to only bring in useful data. This increases cache utilisation and improves miss rate by increasing the effective cache size.}  
-\cventry{2006--2010}{B. Tech in Computer Engineering }{Biju Patnaik University of Technology}{Orissa, India}{\textit{8.3/10.0}}{Under the guidance of Dr. Satyananda Champati Rai, I was responsible for the design and implementation of a modfied vector genetic algorithm to solve the problem of selecting an optimal borrowing scheme for the channel allocation problem in wireless mobile networks.}
+\cventry{05/2013 --~~Present}{PhD in Computing Science}{Simon Fraser University}{British Columbia, Canada}{\textit{4.0/4.0}}
+        {Senior Supervisor : Dr. Arrvindh Shriraman \newline{} The objective of my research is to facilitate energy efficient computation using hardware accelerators via a two pronged approach. The first, hardware-centric approach explores novel microarchitecture closely coupled with the cache memory hierarchy to offload computation. The second, software-centric approach uses static program analyses to deduce which parts of a given program are amenable to hardware acceleration. Together these approaches indicate the potential sources and benefits of using hardware accelerated computation.}
+        \vspace{9pt}
+\cventry{01/2011 -- 04/2013}{MSc in Computing Science}{Simon Fraser University}{British Columbia, Canada}{\textit{3.8/4.0}}
+        {Senior Supervisor : Dr. Arrvindh Shriraman \newline{} A novel microarchitecture was proposed which incorporated adaptive granularity cache lines for memory hierarchies to eliminate bandwidth and energy waste. The system varies the cache line size dynamically based on the nature of the application to only bring in useful data. This increases cache utilisation and improves miss rate by increasing the effective cache size. This work has been peer reviewed and presented at the IEEE International Symposium of Microarchitecutre (2012). A continuation of this research led to the design of a coherence protocol which adaptively changes the storage and coherence granularity in order to increase efficiency and reduce energy consumption. This work was presented at the ACM/IEEE International Symposium on Computer Architecture (2013).}  
+        \vspace{9pt}
+\cventry{08/2006 -- 04/2010}{B. Tech in Computer Engineering }{Biju Patnaik University of Technology}{Orissa, India}{\textit{8.3/10.0}}{Supervisor : Dr. Satyananda Champati Rai \newline{} I was responsible for the design and implementation of a constrained vector genetic algorithm to solve the problem of selecting an optimal borrowing scheme for the channel allocation problem in wireless mobile networks.}
 
 \section{Publications}
 \nocite{*}
 % Only supports @article and @inproceedings, other ones will need "{}" fix to work
 \bibliographystyle{plainyr-rev-moderncv}
-
 \bibliography{pubs}  
 
 \section{Awards}
-\cvitem{Spring 2014}{Special Graduate Entrance Scholarship, Simon Fraser University}
-\cvitem{Spring 2012}{Graduate Fellowship, Simon Fraser University}
+\cvitem{08/2014}{Graduate Fellowship, Simon Fraser University}
+\cvitem{01/2014}{Special Graduate Entrance Scholarship, Simon Fraser University}
+\cvitem{01/2012}{Graduate Fellowship, Simon Fraser University}
 
 \section{Projects}
-\cvitem{Fall 2011}{Interactive demo for the Linear Cell Complex (Computational Geometry Algorithms Library) \newline{} Mentor: Dr. Guillaume Damiand
+\cvitem{04/2014}{Optimizing the Bitpar CKY parser\newline{} Mentor: Dr. Anoop Sarkar, Natural Language Lab, SFU}
+\cvitem{12/2011}{Interactive demo for the Linear Cell Complex (Computational Geometry Algorithms Library) \newline{} Mentor: Dr. Guillaume Damiand
 , CNRS at LIRIS, Universit\`{e} Claude Bernard }
-\vspace{8pt}
-\cvitem{Spring 2011}{Implementing Non-Negative Matrix Factorisation for very large datasets \newline{} Mentor: Dr. Oliver Schulte, Computational Logic Group, SFU }
+%\vspace{8pt}
+\cvitem{04/2011}{Non-Negative Matrix Factorisation for very large datasets \newline{} Mentor: Dr. Oliver Schulte, Computational Logic Group, SFU }
 
 
 \section{Work Experience}
-\cvitem{July--Dec 2013}{Co-Op : Systems Technology and Architecture \newline{} IBM, T.J. Watson Research Centre \newline{} Mentor: Dr. Vijayalakshmi Srinivasan}
-\cvitem{2011--2013}{Research Assistant : SYNAR Group, Simon Fraser University}
+\cvitem{06/2013 -- 12/2013}{Research Intern : Systems Technology and Architecture \newline{} IBM, T.J. Watson Research Centre \newline{} Mentor: Dr. Vijayalakshmi Srinivasan}
+\cvitem{2011 -- 2014}{Research Assistant : SYNAR Group, Simon Fraser University}
 \cvitem{2011, 2013}{Teaching Assistant : CMPT 880, 120, 165, 300}
 
 \section{Technical Skills}
@@ -90,9 +94,9 @@
 \cvitem{Simulators}{Multifacet GEMS(Ruby), MacSim}
 
 \section{Leadership}
-\cvitem{May 2012 - April 2013}{Councillor, Graduate Student Society, Simon Fraser University}
-\cvitem{Nov 2008 - Jul 2010}{Microsoft Student Partner}
-\cvitem{Sep 2009 - Jul 2010}{Treasurer, IEEE Student Chapter}
+\cvitem{05/2012 -- 03/2013}{Councillor, Graduate Student Society, Simon Fraser University}
+\cvitem{11/2008 -- 07/2010}{Microsoft Student Partner}
+\cvitem{09/2009 -- 07/2010}{Treasurer, IEEE Student Chapter}
 
 \section{Languages}
 \cvitem{English}{Proficient}
