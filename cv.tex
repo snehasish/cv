@@ -5,41 +5,47 @@
 % conditions of the LaTeX Project Public License version 1.3c,
 % available at http://www.latex-project.org/lppl/.
 
-
-\documentclass[10pt,letterpaper,sans]{moderncv}   % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\documentclass[11pt,letterpaper,sans]{moderncv}   % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 
 % moderncv themes
 \moderncvstyle{classic}                        % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
 \moderncvcolor{blue}                          % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
 %\renewcommand{\familydefault}{\sfdefault}    % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
-\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
+%\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
 
 % character encoding
 %\usepackage[utf8]{inputenc}                  % if you are not using xelatex ou lualatex, replace by the encoding you are using
 %\usepackage{CJKutf8}                         % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-
+\usepackage{fontawesome}
+\usepackage{enumitem}
 % adjust the page margins
 \usepackage[scale=0.9]{geometry}
-\setlength{\hintscolumnwidth}{3cm}           % if you want to change the width of the column with the dates
+\setlength{\hintscolumnwidth}{2.5cm}           % if you want to change the width of the column with the dates
 %\setlength{\maketitlenamewidth}{10cm}        % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 
 % personal data
 \firstname{Snehasish}
 \familyname{Kumar}
-\address{7360 Halifax Street, 502A}{Burnaby V5A1M4}    % optional, remove the line if not wanted
-\mobile{+1~(604)~721~4323}                     % optional, remove the line if not wanted
-\email{snehasish\textunderscore kumar@sfu.ca}                          % optional, remove the line if not wanted
-\homepage{www.snehasish.net}                    % optional, remove the line if not wanted
+%\email{snehasish\textunderscore kumar@sfu.ca}                          % optional, remove the line if not wanted
+%\homepage{snehasish.net}                    % optional, remove the line if not wanted
+
+\extrainfo{%
+  snehasish\_kumar@sfu.ca \\
+  +1~(604)~721~4323 \\
+  \httplink{snehasish.net} \\
+  \httplink{github.com/snehasish} }
 
 
-
-\def\FormatName#1{
-  \def\myname{Snehasish Kumar}
-  \edef\name{#1}
-  \ifx\name\myname\textbf{#1}
-  \else#1\fi
+\def\FormatName#1{%
+  \def\myname{Snehasish Kumar}%
+    \edef\name{#1}%
+  \ifx\name\myname
+      \underline{#1}%
+    \else
+    #1%
+  \fi
 }
 
 %----------------------------------------------------------------------------------
@@ -49,23 +55,30 @@
 \begin{document}
 %-----       resume       ---------------------------------------------------------
 \makecvtitle
-\vspace{-25pt}
+\vspace{-40pt}
 
-% arguments 3 to 6 can be left empty
-% \section{Objective}
-% \cvitem{}{To obtain an internship position in the area(s) of heterogenous computing, memory systems, computer architecture, parallel systems, high performance computing and gpu computing.}
-
-% \section{Research Interest}
-% \cvitem{}{Multicore architectures, cache memory systems, heterogenous architectures, GPGPU.}
+\section{Research Interests}
+\begin{itemize}[noitemsep,nolistsep]
+\item Scalable compiler directed workload analysis 
+\item Hardware software co-design for specialized architectures 
+\item Core micro-architecture with a focus on the cache memory hierarchy
+\end{itemize}
 
 \section{Education}
-\cventry{05/2013 --~~Present}{PhD in Computing Science}{Simon Fraser University}{British Columbia, Canada}{\textit{4.0/4.0}}
-        {Senior Supervisor : Dr. Arrvindh Shriraman \newline{} The objective of my research is to facilitate energy efficient computation using hardware accelerators via a two pronged approach. The first, hardware-centric approach explores novel microarchitecture closely coupled with the cache memory hierarchy to offload computation. The second, software-centric approach uses static program analyses to deduce which parts of a given program are amenable to hardware acceleration. Together these approaches indicate the potential sources and benefits of using hardware accelerated computation.}
-        \vspace{9pt}
-\cventry{01/2011 -- 04/2013}{MSc in Computing Science}{Simon Fraser University}{British Columbia, Canada}{\textit{3.8/4.0}}
-        {Senior Supervisor : Dr. Arrvindh Shriraman \newline{} A novel microarchitecture was proposed which incorporated adaptive granularity cache lines for memory hierarchies to eliminate bandwidth and energy waste. The system varies the cache line size dynamically based on the nature of the application to only bring in useful data. This increases cache utilisation and improves miss rate by increasing the effective cache size. This work has been peer reviewed and presented at the IEEE International Symposium of Microarchitecutre (2012). A continuation of this research led to the design of a coherence protocol which adaptively changes the storage and coherence granularity in order to increase efficiency and reduce energy consumption. This work was presented at the ACM/IEEE International Symposium on Computer Architecture (2013).}  
-        \vspace{9pt}
-\cventry{08/2006 -- 04/2010}{B. Tech in Computer Engineering }{Biju Patnaik University of Technology}{Orissa, India}{\textit{8.3/10.0}}{Supervisor : Dr. Satyananda Champati Rai \newline{} I was responsible for the design and implementation of a constrained vector genetic algorithm to solve the problem of selecting an optimal borrowing scheme for the channel allocation problem in wireless mobile networks.}
+\cventry{05/13 -- 11/16}{PhD in Computing Science}{Simon Fraser University}{British Columbia, Canada}{\textit{4.0/4.0}}
+{Senior Supervisor : Dr. Arrvindh Shriraman \newline{} 
+My research is directed at facilitating energy efficient computation via specialization. I have adopted a two-pronged approach. First, a top down approach uses program analysis to determine program regions amenable for specialization using LLVM. Second, a bottom up approach evaluated architectural specialization to enable the efficient offload of accelerated program regions.
+\newline{}The former {\em workload-first} approach, uses program analysis to analyse and reconstruct program regions to aid the design and evaluation of specialized accelerators. An analysis of twenty-nine workloads revealed significant merit in analysis at the path granularity for specialization (IISWC'16). Further analysis of instruction dependency chains in frequently executed paths revealed opportunities for specialized macro-instructions (MICRO'16). An insight into the nature of frequently occurring paths led to the development of a new program abstraction for accelerators (submitted HPCA'17). Robust alias analysis at the path granularity also enabled low overhead memory access interfaces for accelerators (submitted ASPLOS'17). I am also leading an ongoing effort to transparently generate application binaries with specialized regions offloaded to a tightly coupled FPGA substrate.
+\newline{}For the latter {\em architecture-first} approach, I designed and evaluated a hardware accelerator for software data structures. The access of and compute on data structures is offloaded to an array of processing elements which are tightly coupled to the last level cache (ICS'15). I also evaluated a specialized coherence protocol for fixed function accelerators (ISCA'15) which improves performance and reduces energy consumption by mitigating redundant data movement.
+\newline{} Publications : \textbf{IISWC'16, MICRO'16, ICS'16, ISCA'15, ICS'15}}
+\vspace{9pt}
+\cventry{01/11 -- 04/13}{MSc in Computing Science}{Simon Fraser University}{British Columbia, Canada}{\textit{3.8/4.0}}
+{Senior Supervisor : Dr. Arrvindh Shriraman \newline{} 
+Designed and evaluated a variable granularity cache memory hierarchy. The system adaptively varies the cache line size to eliminate data fetches not used by the application. Workloads benefited from increased effective cache space. Overall cache miss rates improved and dynamic energy consumption was reduced. The proposed architecture was modeled using the RUBY memory system simulator and evaluated on twenty-two workloads drawn from popular benchmark suites. A subsequent research work evaluated a variable granularity cache coherence protocol.
+\newline{} Publications : \textbf{ISCA'13, MICRO'12}}
+\vspace{9pt}
+\cventry{08/06 -- 04/10}{B. Tech in Computer Engineering}{Biju Patnaik University of Technology}{Orissa, India}{\textit{8.3/10.0}}{Supervisor : Dr. Satyananda Champati Rai \newline{} 
+Designed and implemented a genetic algorithm to address the problem of channel allocation in cellular networks. The algorithm computes a pseudo optimal borrowing scheme amongst neighbouring cells. The implementation used variable separation to reduce the search space. The approach improved over the state of the art and consistently computed near optimal solutions.}
 
 \section{Publications}
 \nocite{*}
@@ -73,41 +86,40 @@
 \bibliographystyle{plainyr-rev-moderncv}
 \bibliography{pubs}  
 
+\section{Workshops, Posters \& Presentations}
+\cvitem{01/16}{SRC India Design Review, Intel Bangalore -- CoolCaches}
+\cvitem{06/15}{SFU-ZU workshop on Big Data  -- Data Structure Accelerators}
+\cvitem{12/13, 08/14}{WoNDP'13, PACT'14 -- SQRL : Hardware Accelerator for Collecting Software Data Structures}
+
 \section{Awards}
-\cvitem{08/2014}{Graduate Fellowship, Simon Fraser University}
-\cvitem{01/2014}{Special Graduate Entrance Scholarship, Simon Fraser University}
-\cvitem{01/2012}{Graduate Fellowship, Simon Fraser University}
+\cvitem{08/14, 01/12}{Graduate Fellowship, Simon Fraser University}
+\cvitem{01/14}{Special Graduate Entrance Scholarship, Simon Fraser University}
 
 \section{Projects}
-\cvitem{04/2014}{Optimizing the Bitpar CKY parser\newline{} Mentor: Dr. Anoop Sarkar, Natural Language Lab, SFU}
-\cvitem{12/2011}{Interactive demo for the Linear Cell Complex (Computational Geometry Algorithms Library) \newline{} Mentor: Dr. Guillaume Damiand
-, CNRS at LIRIS, Universit\`{e} Claude Bernard }
-%\vspace{8pt}
-\cvitem{04/2011}{Non-Negative Matrix Factorisation for very large datasets \newline{} Mentor: Dr. Oliver Schulte, Computational Logic Group, SFU }
+\cvitem{01/15}{Networks : Parallel implementation of Kou, Markowsky and Berman (1981) algorithm}
+\cvitem{04/14}{Natural Language Processing : Optimizing the Bitpar CKY parser}
+\cvitem{12/11}{Computational Geometry : Interactive demo for the Linear Cell Complex (CGAL) }
+\cvitem{04/11}{Machine Learning : Non-Negative Matrix Factorisation for large datasets}
 
+\section{Professional and Academic Experience}
+\cvitem{06/13 -- 12/13}{Research Intern : Systems Technology and Architecture \newline{} IBM, T.J. Watson Research Centre}
+\cvitem{'11 -- '16}{Research Assistant : SYNAR Group, Simon Fraser University}
+\cvitem{'11, '13}{Teaching Assistant : CMPT 880, 120, 165, 300}
 
-\section{Work Experience}
-\cvitem{06/2013 -- 12/2013}{Research Intern : Systems Technology and Architecture \newline{} IBM, T.J. Watson Research Centre \newline{} Mentor: Dr. Vijayalakshmi Srinivasan}
-\cvitem{2011 -- 2015}{Research Assistant : SYNAR Group, Simon Fraser University}
-\cvitem{2011, 2013}{Teaching Assistant : CMPT 880, 120, 165, 300}
+\section{Skills}
+\cvitem{Languages}{C++11, C, Python}
+\cvitem{Frameworks}{LLVM Compiler Infrastructure, Intel PIN}
+\cvitem{Simulators}{Multifacet GEMS (Ruby), MacSim}
 
-\section{Technical Skills}
-\cvitem{Languages}{C++11, C, Python, Java, Matlab, R}
-\cvitem{Simulators}{Multifacet GEMS(Ruby), MacSim}
-
-\section{Leadership}
-\cvitem{05/2012 -- 03/2013}{Councillor, Graduate Student Society, Simon Fraser University}
-\cvitem{11/2008 -- 07/2010}{Microsoft Student Partner}
-\cvitem{09/2009 -- 07/2010}{Treasurer, IEEE Student Chapter}
+% \section{Leadership}
+% \cvitem{05/12 -- 03/13}{Councillor, Graduate Student Society, Simon Fraser University}
+% \cvitem{11/08 -- 07/10}{Microsoft Student Partner}
+% \cvitem{09/09 -- 07/10}{Treasurer, IEEE Student Chapter}
 
 %\section{Languages}
 %\cvitem{English}{Proficient}
 %\cvitem{Hindi}{Proficient}
 %\cvitem{Bengali}{Spoken}
 
-\clearpage
-
 \end{document}
-
-
 %% end of file `template.tex'.
