@@ -486,7 +486,7 @@ FUNCTION {format.in.ed.booktitle}
 { booktitle empty$
     { "" }
     { editor empty$
-        { "In " booktitle emphasize * }
+        { "\newline{}" booktitle emphasize * }
         { "In " format.editors * ", " * booktitle emphasize * }
         if$
     }
@@ -725,7 +725,7 @@ FUNCTION {incollection}
 
 FUNCTION {inproceedings}
 { output.bibitem
-    "{\textbf{" write$
+    "{\textbf{-- " write$
     format.title "title" output.check
     format.authors "author" output.check
     "}\newline{}" write$
@@ -733,7 +733,7 @@ FUNCTION {inproceedings}
     { format.in.ed.booktitle "booktitle" output.check
         format.bvolume output
         format.number.series output
-        format.pages output
+        %% format.pages output
     }
     { format.incoll.inproc.crossref output.nonnull
         format.pages output
@@ -741,8 +741,9 @@ FUNCTION {inproceedings}
     if$
     new.block
     note output
+    "\newline{}Acceptance Rate $\approx$ " write$
     fin.entry
-    "}" write$
+    "\vspace{5pt}}" write$
 }
 
 FUNCTION {conference} { inproceedings }
@@ -792,7 +793,7 @@ FUNCTION {mastersthesis}
     address output
     format.date "year" output.check
     new.block
-    note output
+    %note output
     fin.entry
 }
 
@@ -821,7 +822,7 @@ FUNCTION {phdthesis}
     address output
     format.date "year" output.check
     new.block
-    note output
+    %note output
     fin.entry
 }
 
