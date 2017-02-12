@@ -748,6 +748,7 @@ FUNCTION {inproceedings}
   if$
   new.block
   note output
+  "\newline{}Acceptance Rate $\approx$ " write$
   fin.entry
 }
 

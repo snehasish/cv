@@ -1,18 +1,24 @@
 
 \section{Academic}
 \cventry{05/13 -- 11/16}{PhD in Computing Science}{Simon Fraser University}{British Columbia, Canada}{\textit{4.0/4.0}}
-{Senior Supervisor : Dr. Arrvindh Shriraman \newline{} 
-My research is directed at facilitating energy efficient computation via specialization. I have adopted a two-pronged approach. First, a top down approach uses program analysis to determine program regions amenable for specialization using LLVM. Second, a bottom up approach evaluated architectural specialization to enable the efficient offload of accelerated program regions.
-\newline{}The former {\em workload-first} approach, uses program analysis to analyse and reconstruct program regions to aid the design and evaluation of specialized accelerators. An analysis of twenty-nine workloads revealed significant merit in analysis at the path granularity for specialization (IISWC'16). Further analysis of instruction dependency chains in frequently executed paths revealed opportunities for specialized macro-instructions (MICRO'16). An insight into the nature of frequently occurring paths led to the development of a new program abstraction for accelerators (HPCA'17). Robust alias analysis at the path granularity also enabled low overhead memory access interfaces for accelerators. I am also leading an ongoing effort to transparently generate application binaries with specialized regions offloaded to a tightly coupled FPGA substrate.
-\newline{}For the latter {\em architecture-first} approach, I designed and evaluated a hardware accelerator for software data structures. The access of and compute on data structures is offloaded to an array of processing elements which are tightly coupled to the last level cache (ICS'15). I also evaluated a specialized coherence protocol for fixed function accelerators (ISCA'15) which improves performance and reduces energy consumption by mitigating redundant data movement.
-\newline{} Publications : \textbf{HPCA'17, IISWC'16, MICRO'16, ICS'16, ISCA'15, ICS'15}}
+{Supervisor : Dr. Arrvindh Shriraman \newline{} 
+-- Adapted program analysis techniques to understand what to specialize in a workload. \newline{}
+-- Designed an abstraction for partial specialization of workloads. \newline{}
+-- Implemented automated, scalable characterization and program transformation tools in LLVM. \newline{}
+-- Designed and evaluated a hybrid coherence protocol for accelerator rich architectures. \newline{}
+-- Designed and evaluated a hardware accelerator for software data structures. \newline{}
+Publications : \textbf{HPCA'17, IISWC'16, MICRO'16, ICS'16, ISCA'15, ICS'15}}
+
 \vspace{9pt}
+
 \cventry{01/11 -- 04/13}{MSc in Computing Science}{Simon Fraser University}{British Columbia, Canada}{\textit{3.8/4.0}}
-{Senior Supervisor : Dr. Arrvindh Shriraman \newline{} 
-Designed and evaluated a variable granularity cache memory hierarchy. The system adaptively varies the cache line size to eliminate data fetches not used by the application. Workloads benefited from increased effective cache space. Overall cache miss rates improved and dynamic energy consumption was reduced. The proposed architecture was modeled using the RUBY memory system simulator and evaluated on twenty-two workloads drawn from popular benchmark suites. A subsequent research work evaluated a variable granularity cache coherence protocol.
-\newline{} Publications : \textbf{ISCA'13, MICRO'12}}
+{Supervisor : Dr. Arrvindh Shriraman \newline{} 
+-- Designed and evaluated a variable granularity cache memory system. \newline{}
+-- Evaluated a variable granularity coherence protocol for multiprocessor systems. \newline{}
+Publications : \textbf{ISCA'13, MICRO'12}}
+
 \vspace{9pt}
-\cventry{08/06 -- 04/10}{B. Tech in Computer Engineering}{Biju Patnaik University of Technology}{Orissa, India}{\textit{8.3/10.0}}{Supervisor : Dr. Satyananda Champati Rai \newline{} 
-Designed and implemented a genetic algorithm to address the problem of channel allocation in cellular networks. The algorithm computes a pseudo optimal borrowing scheme amongst neighbouring cells. The implementation used variable separation to reduce the search space. The approach improved over the state of the art and consistently computed near optimal solutions.}
+
+\cventry{08/06 -- 04/10}{B. Tech in Computer Engineering}{Biju Patnaik University of Technology}{Orissa, India}{\textit{8.3/10.0}}{Supervisor : Dr. Satyananda Champati Rai}
 
 
