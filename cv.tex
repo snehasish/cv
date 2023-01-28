@@ -1,27 +1,40 @@
-\documentclass[11pt,letterpaper,sans]{moderncv}   % possible options include font size ('5pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\documentclass[11pt,letterpaper,sans]{moderncv}   
 
-
-
-\input{tex/common/00}
+\input{tex/00}
 
 \begin{document}
 \makecvtitle
 \vspace{-35pt}
 
-%\vspace{-5pt}
-\input{tex/common/01}
-%\vspace{-5pt}
-\input{tex/cv/02}
-\vspace{-5pt}
-\input{tex/cv/03}
-\vspace{-5pt}
-\input{tex/cv/06}
-\vspace{-5pt}
-\input{tex/cv/04}
-\vspace{-5pt}
-\input{tex/cv/05}
-%\vspace{-5pt}
-\input{tex/cv/references.tex}
+\input{tex/01}
 
+\section{Publications}
+\nocite{*}
+\bibliographystyle{plainyr-rev-moderncv}
+\bibliography{pubs}  
+
+\section{Workshops}
+\cvitem{03/16}{GCASR'16 -- Statistical program analysis assisted cost-effective sampling in large scale scientific simulations}
+\cvitem{06/15}{SFU-ZU workshop on Big Data  -- Data Structure Accelerators}
+\cvitem{12/13, 08/14}{WoNDP'13, PACT'14 -- SQRL: Hardware Accelerator for Collecting Software Data Structures}
+
+\section{Invited Talks}
+\cvitem{06/16}{IBM Research -- Needle [HPCA '17]}
+\cvitem{01/16}{SRC India Design Review -- Caches [MICRO '12, ISCA '15]}
+\cvitem{01/16}{Intel Bangalore -- Fusion [ISCA '15]}
+
+\section{Service}
+\cvitem{CGO '20, '23}{Technical Program Committee}
+\cvitem{PPoPP '18, '19}{Artifact Evaluation Committee}
+\cvitem{PLDI '17}{Artifact Evaluation Committee}
+\cvitem{HiPC '20}{Technical Program Committee}
+
+\section{Projects}
+\cvitem{01/15}{Networks: Parallel implementation of Kou, Markowsky and Berman (1981) algorithm}
+\cvitem{04/14}{Natural Language Processing: Optimizing the Bitpar CKY parser}
+\cvitem{12/11}{Computational Geometry: Interactive demo for the Linear Cell Complex (CGAL) }
+\cvitem{04/11}{Machine Learning: Non-Negative Matrix Factorisation for large datasets}
 
 \end{document}
+
+
